@@ -1,0 +1,51 @@
+# write a docker compose with 3 services
+# - services/flight_producer.py
+# - services/flight_with_apm.py
+# - services/flights_to_feature_store.py
+# make sure that I can connect to the redpanda_broker
+name: historical-feature-pipeline-fuel-estimator
+
+networks:
+  redpanda_network:
+    external: true
+
+volumes:
+  flight-producer-volume:
+
+services:
+  
+  flights_producer:
+    container_name: historical_flights_producer-fuel-estimator
+    build:
+      context: ../services/flights_producer
+    networks:
+      - redpanda_network
+    environment:
+      KAFKA_BROKER_ADDRESS: redpanda-0:9092
+    env_file:
+      - ../services/flights_producer/setup_historical_config.sh
+    restart: on-failure
+
+  flights_with_apm:
+    container_name: historical_flights_with_apm-fuel-estimator
+    build:
+      context: ../services/flights_with_weather
+    networks:
+      - redpanda_network
+    environment:
+      KAFKA_BROKER_ADDRESS: redpanda-0:9092
+    env_file:
+      - ../services/flights_with_apm/setup_historical_config.sh
+    restart: on-failure
+
+  flights_to_feature_store:
+    container_name: historical_flights_to_feature_store-fuel-estimator
+    build:
+      context: ../services/flights_to_feature_store
+    networks:
+      - redpanda_network
+    environment:
+      KAFKA_BROKER_ADDRESS: redpanda-0:9092
+    env_file:
+      - ../services/flights_to_feature_store/setup_historical_config.sh
+    restart: on-failure
