@@ -1,7 +1,7 @@
 #!/bin/bash
 export KAFKA_BROKER_ADDRESS="localhost:19092"
 export KAFKA_TOPIC_NAME="historical_flights_with_apm"
-export KAFKA_CONSUMER_GROUP="historical_flights_with_apm_consumer"
+export KAFKA_CONSUMER_GROUP="historical_flights_with_apm_consumer_primary_keys"
 export LIVE_OR_HISTORICAL="historical"
 export HOPSWORKS_API_KEY="MxkTFcD7JWLb15l0.T6u5GKvw6thyaxkk6qLSYXcTCZr8efDc6yfuJehsaDxeUHBxebGbuKyfkJTib8b6"
 export HOPSWORKS_PROJECT_NAME="Ramane"
@@ -9,4 +9,6 @@ export FEATURE_GROUP_NAME="historical_flights_tracking_with_apm_data"
 export FEATURE_GROUP_VERSION=1
 export FEATURE_VIEW_NAME="historical_flights_tracking_with_apm_view"
 export FEATURE_VIEW_VERSION=1
-export BUFFER_SIZE=100000
+export COMET_ML_API_KEY="dm9Y7P3rP2HsnOJ4RIvrW6ULw"
+export COMET_ML_PROJECT_NAME="real-time-ml-fuel-estimator"
+export COMET_ML_WORKSPACE="ramane23"

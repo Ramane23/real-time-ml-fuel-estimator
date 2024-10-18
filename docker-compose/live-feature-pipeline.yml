@@ -29,7 +29,7 @@ services:
   flights_with_apm:
     container_name: live_flights_with_apm-fuel-estimator
     build:
-      context: ../services/flights_with_weather
+      context: ../services/flights_with_apm
     networks:
       - redpanda_network
     environment:

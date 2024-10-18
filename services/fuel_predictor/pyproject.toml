@@ -1,0 +1,47 @@
+[tool.poetry]
+name = "src"
+version = "0.1.0"
+description = ""
+authors = ["Ramane23 <contactsouley@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+loguru = "^0.7.2"
+pydantic-settings = ">=2.3,<2.5"
+quixstreams = "^2.10.0"
+streamlit = "^1.38.0"
+pydeck = "^0.9.1"
+requests = "^2.32.3"
+folium = "^0.17.0"
+geopy = "^2.4.1"
+streamlit-folium = "^0.22.1"
+streamlit-autorefresh = "^1.0.1"
+python-dotenv = "^1.0.1"
+openap = "^2.0"
+hopsworks = "^3.7.0"
+scikit-learn = "^1.5.2"
+xgboost = "^2.1.1"
+imblearn = "^0.0"
+lightgbm = "^4.5.0"
+optuna = "^4.0.0"
+hsfs = "^3.7.7"
+tqdm = "^4.66.5"
+comet-ml = "^3.47.0"
+ruff = "^0.6.9"
+fastapi = "^0.115.0"
+uvicorn = "^0.31.0"
+
+
+[tool.poetry.group.dev.dependencies]
+skimpy = "^0.0.15"
+jupyter-datatables = "^0.3.9"
+numpy = ">=1.22.2,<2.0.0"
+matplotlib = "^3.9.2"
+seaborn = "^0.13.2"
+duckdb = "^1.1.1"
+ipykernel = "^6.29.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
