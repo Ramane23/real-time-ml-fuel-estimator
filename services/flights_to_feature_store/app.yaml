@@ -11,6 +11,11 @@ variables:
     description: consummer group to read from the kafka topic
     defaultValue: live_flights_with_apm_consumer
     required: true
+  - name: LIVE_OR_HISTORICAL
+    inputType: FreeText
+    description: whether we are running on live or historical mode
+    defaultValue: live
+    required: true
 dockerfile: Dockerfile
 runEntryPoint: src/main.py
 defaultFile: src/main.py
