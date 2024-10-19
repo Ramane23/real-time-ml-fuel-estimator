@@ -1,6 +1,11 @@
 name: flights_to_feature_store
 language: python
-variables: []
+variables:
+  - name: KAFKA_TOPIC_NAME
+    inputType: InputTopic
+    description: we need to read from the topic in irder to extract the primary keys requiredd by hopsworks
+    defaultValue: live_flights_with_apm
+    required: true
 dockerfile: Dockerfile
 runEntryPoint: src/main.py
 defaultFile: src/main.py
