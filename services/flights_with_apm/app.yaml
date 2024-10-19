@@ -1,6 +1,11 @@
 name: flights_with_apm
 language: python
-variables: []
+variables:
+  - name: KAFKA_INPUT_TOPIC_NAME
+    inputType: InputTopic
+    description: the input kafka topic from which we retrieve the flights points
+    defaultValue: live_flights_fuel_estimation
+    required: true
 dockerfile: Dockerfile
 runEntryPoint: src/main.py
 defaultFile: src/main.py
