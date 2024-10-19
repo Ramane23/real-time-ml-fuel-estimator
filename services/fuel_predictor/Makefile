@@ -3,6 +3,10 @@ train:
 	@echo "Running with setup_historical_config.sh"
 	. ./setup_historical_config.sh && poetry run python src/training.py
 
+test:
+	@echo "Running with setup_historical_config.sh"
+	. ./setup_historical_config.sh && poetry run pytest tests/test_apply_preprocessing.py
+
 # Commands for running the prediction script
 predict:
 	@echo "Running with setup_live_config.sh"

@@ -31,6 +31,7 @@ comet-ml = "^3.47.0"
 ruff = "^0.6.9"
 fastapi = "^0.115.0"
 uvicorn = "^0.31.0"
+pytest = "^8.3.3"
 
 
 [tool.poetry.group.dev.dependencies]
