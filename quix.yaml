@@ -30,6 +30,30 @@ deployments:
         description: ''
         required: true
         secretKey: AVIATION_EDGE_API_KEY
+  - name: flights_with_apm
+    application: services/flights_with_apm
+    version: latest
+    deploymentType: Service
+    resources:
+      cpu: 200
+      memory: 500
+      replicas: 1
+    variables:
+      - name: KAFKA_INPUT_TOPIC_NAME
+        inputType: InputTopic
+        description: the input kafka topic from which we retrieve the flights points
+        required: true
+        value: live_flights_fuel_estimation
+      - name: KAFKA_CONSUMER_GROUP
+        inputType: FreeText
+        description: consummer group to read from the input topic
+        required: true
+        value: live_flights_consumer_fuel_estimation
+      - name: KAFKA_OUTPUT_TOPIC_NAME
+        inputType: OutputTopic
+        description: the kafka topic to produce the flights points enriched with with aircraft performances features
+        required: true
+        value: live_flights_with_apm
 
 # This section describes the Topics of the data pipeline
 topics:
