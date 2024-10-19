@@ -54,6 +54,65 @@ deployments:
         description: the kafka topic to produce the flights points enriched with with aircraft performances features
         required: true
         value: live_flights_with_apm
+  - name: flights_to_feature_store
+    application: services/flights_to_feature_store
+    version: latest
+    deploymentType: Service
+    resources:
+      cpu: 200
+      memory: 500
+      replicas: 1
+    variables:
+      - name: KAFKA_TOPIC_NAME
+        inputType: InputTopic
+        description: we need to read from the topic in irder to extract the primary keys requiredd by hopsworks
+        required: true
+        value: live_flights_with_apm
+      - name: KAFKA_CONSUMER_GROUP
+        inputType: FreeText
+        description: consummer group to read from the kafka topic
+        required: true
+        value: live_flights_with_apm_consumer
+      - name: LIVE_OR_HISTORICAL
+        inputType: FreeText
+        description: whether we are running on live or historical mode
+        required: true
+        value: live
+      - name: HOPSWORKS_API_KEY
+        inputType: Secret
+        description: ''
+        required: true
+        secretKey: HOPSWORKS_API_KEY
+      - name: HOPSWORKS_PROJECT_NAME
+        inputType: FreeText
+        description: ''
+        required: true
+        value: Ramane
+      - name: FEATURE_GROUP_NAME
+        inputType: FreeText
+        description: ''
+        required: true
+        value: live_flights_tracking_with_apm_data
+      - name: FEATURE_GROUP_VERSION
+        inputType: FreeText
+        description: ''
+        required: true
+        value: 1
+      - name: FEATURE_VIEW_NAME
+        inputType: FreeText
+        description: ''
+        required: true
+        value: live_flights_tracking_with_apm_view
+      - name: FEATURE_VIEW_VERSION
+        inputType: FreeText
+        description: ''
+        required: true
+        value: 1
+      - name: BUFFER_SIZE
+        inputType: FreeText
+        description: ''
+        required: true
+        value: 1000
 
 # This section describes the Topics of the data pipeline
 topics:
