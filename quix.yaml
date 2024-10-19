@@ -24,3 +24,8 @@ topics:
       replicationFactor: 2
       retentionInMinutes: 1440
       retentionInBytes: 52428800
+  - name: live_flights_fuel_estimation
+    configuration:
+      replicationFactor: 2
+      retentionInMinutes: 1440
+      retentionInBytes: 52428800
