@@ -1,0 +1,6 @@
+name: src
+language: python
+variables: []
+dockerfile: Dockerfile
+runEntryPoint: src/restapi.py
+defaultFile: src/restapi.py
