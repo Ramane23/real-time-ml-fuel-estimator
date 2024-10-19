@@ -46,6 +46,11 @@ variables:
     description: ''
     defaultValue: 1
     required: true
+  - name: LAST_N_MINUTES
+    inputType: FreeText
+    description: ''
+    defaultValue: 10
+    required: false
 dockerfile: Dockerfile
 runEntryPoint: src/restapi.py
 defaultFile: src/restapi.py
