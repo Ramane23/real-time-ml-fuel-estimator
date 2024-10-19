@@ -50,7 +50,7 @@ variables:
     inputType: FreeText
     description: ''
     defaultValue: 10
-    required: false
+    required: true
 dockerfile: Dockerfile
 runEntryPoint: src/restapi.py
 defaultFile: src/restapi.py
