@@ -1,7 +1,7 @@
 name: flights_producer
 language: python
 variables:
-  - name: KAFKA_TOPIC
+  - name: KAFKA_TOPIC_NAME
     inputType: OutputTopic
     description: the kafka topic to produce the flights from AviationEdge API
     defaultValue: live_flights_fuel_estimation
