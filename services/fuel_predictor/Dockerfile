@@ -22,9 +22,6 @@ WORKDIR /app
 # copy the pyproject.toml and poetry.lock files into the container
 COPY pyproject.toml poetry.lock /app/
 
-# copy the pip.conf file into the container
-COPY pip.conf /etc/pip.conf
-
 # install Python dependencies from the pyproject.toml file
 RUN poetry install 
 
