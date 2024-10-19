@@ -41,6 +41,11 @@ variables:
     description: ''
     defaultValue: live_flights_tracking_with_apm_view
     required: true
+  - name: FEATURE_VIEW_VERSION
+    inputType: FreeText
+    description: ''
+    defaultValue: 1
+    required: true
 dockerfile: Dockerfile
 runEntryPoint: src/restapi.py
 defaultFile: src/restapi.py
