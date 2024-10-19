@@ -56,6 +56,11 @@ variables:
     description: ''
     defaultValue: COMET_ML_API_KEY
     required: true
+  - name: COMET_ML_PROJECT_NAME
+    inputType: FreeText
+    description: ''
+    defaultValue: real-time-ml-fuel-estimator
+    required: true
 dockerfile: Dockerfile
 runEntryPoint: src/restapi.py
 defaultFile: src/restapi.py
