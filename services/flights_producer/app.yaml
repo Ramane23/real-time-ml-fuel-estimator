@@ -4,7 +4,7 @@ variables:
   - name: KAFKA_TOPIC
     inputType: OutputTopic
     description: the kafka topic to produce the flights from AviationEdge API
-    defaultValue: live_flights_fuel_estimator
+    defaultValue: live_flights_fuel_estimation
     required: true
   - name: LIVE_OR_HISTORICAL
     inputType: FreeText
