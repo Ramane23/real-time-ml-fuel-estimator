@@ -8,4 +8,19 @@ metadata:
 deployments: []
 
 # This section describes the Topics of the data pipeline
-topics: []
+topics:
+  - name: KAFKA_TOPIC_NAME
+    configuration:
+      replicationFactor: 2
+      retentionInMinutes: 1440
+      retentionInBytes: 52428800
+  - name: live_flights
+    configuration:
+      replicationFactor: 2
+      retentionInMinutes: 1440
+      retentionInBytes: 52428800
+  - name: live_flights_fuel_estimator
+    configuration:
+      replicationFactor: 2
+      retentionInMinutes: 1440
+      retentionInBytes: 52428800
