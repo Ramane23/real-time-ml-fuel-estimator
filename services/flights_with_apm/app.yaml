@@ -6,6 +6,11 @@ variables:
     description: the input kafka topic from which we retrieve the flights points
     defaultValue: live_flights_fuel_estimation
     required: true
+  - name: KAFKA_CONSUMER_GROUP
+    inputType: FreeText
+    description: consummer group to read from the input topic
+    defaultValue: live_flights_consumer_fuel_estimation
+    required: true
 dockerfile: Dockerfile
 runEntryPoint: src/main.py
 defaultFile: src/main.py
