@@ -26,6 +26,11 @@ variables:
     description: ''
     defaultValue: Ramane
     required: true
+  - name: FEATURE_GROUP_NAME
+    inputType: FreeText
+    description: ''
+    defaultValue: live_flights_tracking_with_apm_data
+    required: true
 dockerfile: Dockerfile
 runEntryPoint: src/restapi.py
 defaultFile: src/restapi.py
