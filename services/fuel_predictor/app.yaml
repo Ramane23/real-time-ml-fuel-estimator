@@ -11,6 +11,11 @@ variables:
     description: ''
     defaultValue: live_flights_with_apm_consumer_primary_keys
     required: true
+  - name: LIVE_OR_HISTORICAL
+    inputType: FreeText
+    description: ''
+    defaultValue: live
+    required: true
 dockerfile: Dockerfile
 runEntryPoint: src/restapi.py
 defaultFile: src/restapi.py
