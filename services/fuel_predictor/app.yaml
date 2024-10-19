@@ -1,6 +1,11 @@
 name: fuel_predictor
 language: python
-variables: []
+variables:
+  - name: KAFKA_TOPIC_NAME
+    inputType: InputTopic
+    description: ''
+    defaultValue: live_flights_with_apm
+    required: true
 dockerfile: Dockerfile
 runEntryPoint: src/restapi.py
 defaultFile: src/restapi.py
