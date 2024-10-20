@@ -22,7 +22,7 @@ jobs:
       - name: Install Poetry
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
-          poetry install
+          
 
       - name: Add Poetry to PATH
         run: echo PATH="${HOME}/.local/bin" >> $GITHUB_PATH
@@ -30,6 +30,7 @@ jobs:
       - name: Test apply preprocessing
         run: |
           cd services/fuel_predictor
+          poetry install
           make test_preprocessing
   
   test_apply_feature_engineering:
@@ -48,12 +49,12 @@ jobs:
       - name: Install Poetry
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
-          poetry install
-
+        
       - name: Add Poetry to PATH
         run: echo PATH="${HOME}/.local/bin" >> $GITHUB_PATH
           
       - name: Test apply feature engineering
         run: |
           cd services/fuel_predictor
+          poetry install
           make test_feature_engineering
