@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+  test_apply_preprocessing:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,6 +22,7 @@ jobs:
       - name: Install Poetry
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
+          poetry install
 
       - name: Add Poetry to PATH
         run: echo PATH="${HOME}/.local/bin" >> $GITHUB_PATH
@@ -29,5 +30,30 @@ jobs:
       - name: Test apply preprocessing
         run: |
           cd services/fuel_predictor
+          make test_preprocessing
+  
+  test_apply_feature_engineering:
+    needs: test_apply_preprocessing
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
           poetry install
-          make test
+
+      - name: Add Poetry to PATH
+        run: echo PATH="${HOME}/.local/bin" >> $GITHUB_PATH
+          
+      - name: Test apply feature engineering
+        run: |
+          cd services/fuel_predictor
+          make test_feature_engineering
