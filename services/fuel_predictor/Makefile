@@ -3,9 +3,13 @@ train:
 	@echo "Running with setup_historical_config.sh"
 	. ./setup_historical_config.sh && poetry run python src/training.py
 
-test:
+test_preprocessing:
 	@echo "Running with setup_historical_config.sh"
 	. ./setup_historical_config.sh && poetry run pytest tests/test_apply_preprocessing.py
+
+test_features_engineering:
+	@echo "Running with setup_historical_config.sh"
+	. ./setup_historical_config.sh && poetry run pytest tests/test_apply_features_engineering.py
 
 # Commands for running the prediction script
 predict:
@@ -24,6 +28,10 @@ check-health:
 check-health-docker:
 	curl -X GET http://localhost:5005/healthcheck
 
+check-health-production:
+	curl -X GET https://fuel-predictor-3f63c0-contactsouley-realtimemlfuelestimator-dev.deployments.quix.io/healthcheck
+
+
 # Send a valid prediction request to the local API
 request:
 	curl -X POST http://localhost:8000/predict -H "Content-Type: application/json" -d '{"route": "Abidjan - Paris"}'
@@ -33,7 +41,7 @@ request-docker:
 
 # Send a request to the production API (adjust the URL as needed)
 request-production:
-	curl -X POST https://contrail-estimator-contactsouley-realtimemlcontrailspr-4eda2dd1.deployments.quix.io/predict -H "Content-Type: application/json" -d '{"route": "Frankfurt - Berlin"}'
+	curl -X POST https://fuel-predictor-3f63c0-contactsouley-realtimemlfuelestimator-dev.deployments.quix.io/predict -H "Content-Type: application/json" -d '{"route": "Frankfurt - Berlin"}'
 
 # Send an invalid prediction request to test error handling
 invalid-request:
