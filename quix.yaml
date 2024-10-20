@@ -123,7 +123,7 @@ deployments:
       replicas: 1
     publicAccess:
       enabled: true
-      urlPrefix: fuel-predict-3f63c0
+      urlPrefix: fuelpredict3f63c0
     variables:
       - name: KAFKA_TOPIC_NAME
         inputType: InputTopic
