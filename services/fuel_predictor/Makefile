@@ -29,7 +29,7 @@ check-health-docker:
 	curl -X GET http://localhost:5005/healthcheck
 
 check-health-production:
-	curl -X GET https://fuel-predictor-3f63c0-contactsouley-realtimemlfuelestimator-dev.deployments.quix.io/healthcheck
+	curl -X GET https://fuelpredict3f63c0-contactsouley-realtimemlfuelestimat-c32cd913.deployments.quix.io/healthcheck
 
 
 # Send a valid prediction request to the local API
