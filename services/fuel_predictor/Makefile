@@ -41,7 +41,7 @@ request-docker:
 
 # Send a request to the production API (adjust the URL as needed)
 request-production:
-	curl -X POST https://fuel-predictor-3f63c0-contactsouley-realtimemlfuelestimator-dev.deployments.quix.io/predict -H "Content-Type: application/json" -d '{"route": "Frankfurt - Berlin"}'
+	curl -X POST https://fuelpredict3f63c0-contactsouley-realtimemlfuelestimat-c32cd913.deployments.quix.io/predict -H "Content-Type: application/json" -d '{"route": "Frankfurt - Berlin"}'
 
 # Send an invalid prediction request to test error handling
 invalid-request:

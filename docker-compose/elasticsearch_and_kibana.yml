@@ -1,0 +1,33 @@
+version: '3.8'
+name: elasticsearch_and_kibana
+networks:
+  redpanda_network: 
+    name: redpanda_network # Define a custom network named 'redpanda_network'.
+    driver: bridge  # Use the 'bridge' network driver, which creates an isolated network.
+    external: true  # Allow the network to be used by other Docker Compose files.
+    
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.14.0
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.14.0
+    container_name: kibana
+    ports:
+      - "5601:5601"
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    depends_on:
+      - elasticsearch
+
+volumes:
+  elasticsearch_data:

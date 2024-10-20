@@ -1,8 +1,17 @@
+#Infrastructures
+
+# Commands for running the Redpanda cluster
 start-redpanda:
 	docker compose -f redpanda.yml up -d
 
 stop-redpanda:
 	docker compose -f redpanda.yml down
+	
+# Commands for running the elastic search and kibana
+start-elastic-kibana:
+	docker compose -f elasticsearch_and_kibana.yml up -d
+stop-elastic-kibana:
+	docker compose -f elasticsearch_and_kibana.yml down
 
 # Feature pipeline commands when running with live data
 build-live-feature-pipeline:
